@@ -1,5 +1,5 @@
-variable "prefix" {
-  default = "tfvmex"
+provider "azurerm" {
+  features {}
 }
 
 resource "azurerm_network_interface" "main" {
