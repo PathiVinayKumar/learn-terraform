@@ -1,3 +1,5 @@
+# Configure the Microsoft Azure Provider
+
 provider "azurerm" {
   features {}
 }
@@ -27,8 +29,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   source_image_id = "/subscriptions/9e27705f-e28f-4f14-9137-ef3f4f8924af/resourceGroups/Test/providers/Microsoft.Compute/galleries/rhel10/images/1.0.0"
 
   os_disk {
-    name              = "myosdisk1"
-    caching           = "ReadWrite"
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
   }
 
     admin_username = "vinay"
