@@ -19,7 +19,7 @@ resource "azurerm_virtual_machine" "main" {
   location              = "Denmark East"
   resource_group_name   = "Test"
   network_interface_ids = [azurerm_network_interface.main.id]
-  vm_size               = "Standard B1s"
+  vm_size               = "Standard_D4as_v4"
 
   # Uncomment this line to delete the data disks automatically when deleting the VM
   # delete_data_disks_on_termination = true
