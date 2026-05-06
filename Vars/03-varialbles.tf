@@ -19,12 +19,12 @@ variable "list" {
   
 }
 
-output "some_string" {
-   value= var.some_string
+variable "l1" {
+    default = [10,20,30]
   
 }
 
-output "some_number" {
-    value = var.some_number
-}
+resource "null_resource" "test" {
+    for_each = var.list
 
+}
