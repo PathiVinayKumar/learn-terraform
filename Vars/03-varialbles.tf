@@ -24,11 +24,7 @@ output "some_string" {
   
 }
 
-output "list_0" {
-    value = var.list[0]
+output "some_number" {
+    value = var.some_number
 }
 
-output "list_1" {
-    value = var.list[1]
-  
-}
