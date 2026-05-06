@@ -19,17 +19,9 @@ variable "list" {
   
 }
 
-variable "l1" {
-    default = [10,20,30]
-  
-}
-
 resource "null_resource" "test" {
     for_each = var.list
 
 }
 
-resource "null_resource" "test2" {
-    for_each = var.l1
-  
-}
+
