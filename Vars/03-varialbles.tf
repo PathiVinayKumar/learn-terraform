@@ -28,3 +28,8 @@ resource "null_resource" "test" {
     for_each = var.list
 
 }
+
+resource "null_resource" "test2" {
+    for_each = var.l1
+  
+}
