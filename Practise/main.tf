@@ -6,6 +6,11 @@ data "azurerm_resource_group" "Test" {
   name = "Test" # Matches the existing name in your Azure portal
 }
 
+data "azurerm_virtual_network" "Monolith-vnet" {
+  name                = "Monolith-vnet"
+  resource_group_name = data.azurerm_resource_group.Test.name
+}
+
 resource "azurerm_virtual_network" "Monolith-vnet" {
   name                = "Monolith-vnet"
   address_space       = ["10.0.0.0/16"]
@@ -16,7 +21,7 @@ resource "azurerm_virtual_network" "Monolith-vnet" {
 resource "azurerm_subnet" "default" {
   name                 = "default"
   resource_group_name  = data.azurerm_resource_group.Test.name
-  virtual_network_name = azurerm_virtual_network.Monolith-vnet.name
+  virtual_network_name = data.azurerm_virtual_network.Monolith-vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
@@ -53,7 +58,7 @@ resource "azurerm_linux_virtual_machine" "test1" {
   source_image_reference {
     publisher = "RedHat"
     offer     = "RHEL"
-    sku       = "10-gen2"
+    sku       = "10-lvm-gen2"
     version   = "latest"
   }
 }
