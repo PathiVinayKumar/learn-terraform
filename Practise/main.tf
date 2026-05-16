@@ -2,10 +2,10 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "Test" {
-  name     = "Test"
-  location = "Denmark East"
-}
+# resource "azurerm_resource_group" "Test" {
+#   name     = "Test"
+#   location = "Denmark East"
+# }
 
 resource "azurerm_virtual_network" "Monolith-vnet" {
   name                = "Monolith-vnet"
