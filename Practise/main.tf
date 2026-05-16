@@ -37,8 +37,10 @@ resource "azurerm_linux_virtual_machine" "test1" {
   name                = "test1"
   resource_group_name = azurerm_resource_group.Test.name
   location            = azurerm_resource_group.Test.location
+  disable_password_authentication = false
   size                = "Standard_F2"
   admin_username      = "vinay"
+  admin_password      = "Vinny@123456789"
   network_interface_ids = [
     azurerm_network_interface.vinay913_z1.id,
   ]
