@@ -2,9 +2,8 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "Test" {
-  name     = "Test1"
-  location = "Denmark East"
+data "azurerm_resource_group" "Test" {
+  name = "Test" # Matches the existing name in your Azure portal
 }
 
 resource "azurerm_virtual_network" "Monolith-vnet" {
@@ -50,10 +49,11 @@ resource "azurerm_linux_virtual_machine" "test1" {
     storage_account_type = "Standard_LRS"
   }
 
+# 2. Updated for RHEL 10 Image
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts"
+    publisher = "RedHat"
+    offer     = "RHEL"
+    sku       = "10-gen2"
     version   = "latest"
   }
 }
