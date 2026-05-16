@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "Monolith-vnet" {
 
 resource "azurerm_subnet" "default" {
   name                 = "default"
-  resource_group_name  = data.azurerm_resource_group.Test
+  resource_group_name  = data.azurerm_resource_group.Test.name
   virtual_network_name = azurerm_virtual_network.Monolith-vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
