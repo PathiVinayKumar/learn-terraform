@@ -4,7 +4,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "Test" {
   name     = "Test"
-  location = "Denmark East (Zone 1)"
+  location = "Denmark East"
 }
 
 resource "azurerm_virtual_network" "Monolith-vnet" {
