@@ -1,13 +1,17 @@
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_resource_group" "Test" {
   name     = "Test"
   location = "Denmark East (Zone 1)"
 }
 
-resource "azurerm_virtual_network" "Monolith-vnet/default" {
-  name                = "Monolith-vnet/default"
+resource "azurerm_virtual_network" "Monolith-vnet" {
+  name                = "Monolith-vnet"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.Monolith-vnet/default.location
-  resource_group_name = azurerm_resource_group.Monolith-vnet/default.name
+  location            = azurerm_resource_group.Monolith-vnet.location
+  resource_group_name = azurerm_resource_group.Monolith-vnet.name
 }
 
 resource "azurerm_subnet" "default" {
