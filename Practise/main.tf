@@ -9,21 +9,21 @@ data "azurerm_resource_group" "Test" {
 resource "azurerm_virtual_network" "Monolith-vnet" {
   name                = "Monolith-vnet"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.Test.location
-  resource_group_name = azurerm_resource_group.Test.name
+  location            = data.azurerm_resource_group.Test.location
+  resource_group_name = data.azurerm_resource_group.Test.name
 }
 
 resource "azurerm_subnet" "default" {
   name                 = "default"
-  resource_group_name  = azurerm_resource_group.Test.name
+  resource_group_name  = data.azurerm_resource_group.Test
   virtual_network_name = azurerm_virtual_network.Monolith-vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "vinay913_z1" {
   name                = "vinay913_z1-nic"
-  location            = azurerm_resource_group.Test.location
-  resource_group_name = azurerm_resource_group.Test.name
+  location            = data.azurerm_resource_group.Test.location
+  resource_group_name = data.azurerm_resource_group.Test.name
 
   ip_configuration {
     name                          = "subnet"
@@ -34,8 +34,8 @@ resource "azurerm_network_interface" "vinay913_z1" {
 
 resource "azurerm_linux_virtual_machine" "test1" {
   name                = "test1"
-  resource_group_name = azurerm_resource_group.Test.name
-  location            = azurerm_resource_group.Test.location
+  resource_group_name = data.azurerm_resource_group.Test.name
+  location            = data.azurerm_resource_group.Test.location
   disable_password_authentication = false
   size                = "Standard_F2"
   admin_username      = "vinay"
