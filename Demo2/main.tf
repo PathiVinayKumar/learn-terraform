@@ -3,6 +3,7 @@ provider "azurerm" {
   features {}
 }
 
+
 resource "azurerm_network_interface" "main" {
   name                = "test-nic"
   location            = "Denmark East"
