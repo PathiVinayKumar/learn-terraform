@@ -6,7 +6,7 @@ provider "azurerm" {
 resource "azurerm_network_interface" "main" {
   name                = "test-nic"
   location            = "Denmark East"
-  resource_group_name = "denmark-east-rg"
+  resource_group_name = "Test"
 
   ip_configuration {
     name                          = "testconfiguration1"
