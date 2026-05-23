@@ -19,7 +19,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_linux_virtual_machine" "main" {
   name                  = "test-vm"
   location              = "Denmark East"
-  resource_group_name   = "denmark-east-rg"
+  resource_group_name   = "Test"
   network_interface_ids = [azurerm_network_interface.main.id]
   size               = "Standard_D2s_v3"
 
